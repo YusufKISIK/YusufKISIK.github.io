@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yusuf Kazim ISIK | Computer Engineer</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== Navigation ===== -->
+  <nav>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+
+    <!-- ===== Header ===== -->
+    <header>
+      <h1 id="typing"></h1>
+      <p class="tagline">Computer Engineer · Automation, Networking & Test Engineering</p>
+      <p>📍 Zoetermeer · <a href="mailto:yusufk.isik@gmail.com">yusufk.isik@gmail.com</a></p>
+      <a class="cv-btn" href="YusufKazimIsik_CV.pdf" download>⬇ Download CV</a>
+    </header>
+
+    <!-- ===== About Section ===== -->
+    <section id="about" class="grid">
+      <div class="card">
+        <h2>About Me</h2>
+        <p>I graduated from Bahçeşehir University with a 100% merit-based scholarship in Computer Engineering. I currently work as a Junior Engineer at a Cisco partner, focusing on automation and network systems.</p>
+      </div>
+    </section>
+
+    <!-- ===== Skills Section ===== -->
+    <section id="skills" class="grid">
+      <div class="card">
+        <h2>Technical Skills</h2>
+        <!-- Each "pill" has a tooltip describing the skill -->
+        <span class="pill" data-tip="Automation & data processing">Python</span>
+        <span class="pill" data-tip="Cisco NPI & regression">Test Automation</span>
+        <span class="pill" data-tip="ML & classification">Machine Learning</span>
+        <span class="pill" data-tip="Unity & backend">C#</span>
+        <span class="pill" data-tip="Cloud databases">Azure</span>
+        <span class="pill" data-tip="Debian, VMware">Linux</span>
+        <span class="pill" data-tip="IPv4 / IPv6">Networking</span>
+      </div>
+    </section>
+
+    <!-- ===== Experience Section ===== -->
+    <section id="experience" class="grid">
+      <div class="card">
+        <h2>Reconext · Junior Engineer</h2>
+        <ul>
+          <li>400+ completed engineering issues</li>
+          <li>NPI test automation for 8 Cisco product families</li>
+          <li>Network line setup & validation</li>
+          <li>Technical documentation & training</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== Education Section ===== -->
+    <section id="education" class="grid">
+      <div class="card">
+        <h2>Education</h2>
+        <p><strong>BSc Computer Engineering</strong><br>Bahçeşehir University (2018–2023)</p>
+        <p>Graduation thesis: 3D Material Printer with STL → GCode parser</p>
+      </div>
+    </section>
+
+    <!-- ===== Footer ===== -->
+    <footer>
+      © 2026 Yusuf Kazim ISIK · GitHub Pages
+    </footer>
+  </div>
+
+  <!-- Tooltip -->
+  <div class="tooltip" id="tooltip"></div>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
