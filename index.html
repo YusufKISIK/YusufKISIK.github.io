@@ -18,6 +18,7 @@
     <ul>
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#education">Education</a></li>
     </ul>
@@ -30,6 +31,11 @@
       <h1 id="typing"></h1>
       <p class="tagline">Computer Engineer · Automation, Networking & Test Engineering</p>
       <p>📍 Zoetermeer · <a href="mailto:yusufk.isik@gmail.com">yusufk.isik@gmail.com</a></p>
+      <div class="social-links">
+        <a href="https://github.com" target="_blank" title="GitHub">🐙 GitHub</a>
+        <a href="https://linkedin.com" target="_blank" title="LinkedIn">💼 LinkedIn</a>
+      </div>
+      <a href="#" class="cv-btn">📥 Download CV</a>
     </header>
 
     <!-- ===== About Section ===== -->
@@ -43,37 +49,99 @@
     <!-- ===== Skills Section ===== -->
     <section id="skills" class="grid">
       <div class="card">
-        <h2>Technical Skills</h2>
-        <!-- Each "pill" has a tooltip describing the skill -->
-        <span class="pill" data-tip="Automation & data processing">Python</span>
-        <span class="pill" data-tip="Cisco NPI & regression">Test Automation</span>
-        <span class="pill" data-tip="ML & classification">Machine Learning</span>
-        <span class="pill" data-tip="Unity & backend">C#</span>
-        <span class="pill" data-tip="Cloud databases">Azure</span>
-        <span class="pill" data-tip="Debian, VMware">Linux</span>
-        <span class="pill" data-tip="IPv4 / IPv6">Networking</span>
+      <h2>🛠️ Technical Skills</h2>
+      <!-- Each "pill" has a tooltip describing the skill -->
+      <span class="pill" data-tip="Automation & data processing">🐍 Python</span>
+      <span class="pill" data-tip="Cisco NPI & regression">🧪 Test Automation</span>
+      <span class="pill" data-tip="ML & classification">🤖 Machine Learning</span>
+      <span class="pill" data-tip="Unity & backend">♯ C#</span>
+      <span class="pill" data-tip="Cloud databases">☁️ Azure</span>
+      <span class="pill" data-tip="Debian, VMware">🐧 Linux</span>
+      <span class="pill" data-tip="IPv4 / IPv6">🌐 Networking</span>
       </div>
     </section>
+
+    <!-- ===== Projects Section ===== -->
+    <section id="projects" class="grid">
+      <div class="card project-card">
+      <h3>🖨️ 3D Material Printer</h3>
+      <p class="tech-stack">🐍 Python · 📄 STL Parser · ⚙️ GCode Generation</p>
+      <p>Graduation thesis project: Built a complete 3D printer pipeline from STL file parsing to GCode generation for automated material deposition.</p>
+      <a href="https://github.com/YusufKISIK/CapstoneProject" class="project-link">View Project →</a>
+      </div>
+      <div class="card project-card">
+      <h3>🧪 NPI Test Automation</h3>
+      <p class="tech-stack">🐍 Python · 🔷 Cisco · 🌐 Network Testing</p>
+      <p>Automated test framework for 8 Cisco product families, significantly reducing manual testing time and improving regression coverage.</p>
+      <a href="#" class="project-link">Learn More →</a>
+      </div>
+      <div class="card project-card" data-project="network-config">
+      <h3>🌐 Network Config</h3>
+      <p class="tech-stack">🐍 Python · 🐧 Linux · 📡 IPv4/IPv6</p>
+      <p>Developed automation tools for network line setup and validation, reducing configuration errors and deployment time.</p>
+      <a href="#" class="project-link" data-project="network-config">Learn More →</a>
+      </div>
+
+      <!-- Network Config Project Details -->
+      <div id="network-config-details" class="project-details hidden">
+        <div class="card details-card">
+          <button class="close-details">✕ Close</button>
+          <h3>🌐 Network Configuration Tool - Deep Dive</h3>
+          <div class="details-content">
+            <div class="details-image">
+              <img src="Files/networking.png" alt="Network Configuration" />
+            </div>
+            <div class="details-text">
+              <h4>Project Overview</h4>
+              <p>This automation tool streamlines the complex process of network cabling configuration and validation.</p>
+              
+              <h4>Network Cabling & Configuration</h4>
+              <ul>
+                <li><strong>Cable Management:</strong> Automated detection and organization of network cables (Cat6, Cat6A)</li>
+                <li><strong>Port Configuration:</strong> Dynamic assignment of IPv4/IPv6 addresses to physical ports</li>
+                <li><strong>VLAN Setup:</strong> Programmatic VLAN tagging and management across network switches</li>
+                <li><strong>Validation:</strong> Continuous testing of configuration integrity and connectivity</li>
+              </ul>
+              
+              <h4>Key Features</h4>
+              <ul>
+                <li>Reduced configuration time by 60% through automation</li>
+                <li>Real-time error detection and correction</li>
+                <li>Support for complex network topologies (200+ devices)</li>
+                <li>Comprehensive logging and audit trails</li>
+              </ul>
+              
+              <h4>Technical Stack</h4>
+              <p>Python automation framework, Linux-based controllers, Netmiko for device management, YAML configuration files</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Details Container -->
+    <div id="project-details-container"></div>
 
     <!-- ===== Experience Section ===== -->
     <section id="experience" class="grid">
       <div class="card">
-        <h2>Reconext · Junior Engineer</h2>
-        <ul>
-          <li>400+ completed engineering issues</li>
-          <li>NPI test automation for 8 Cisco product families</li>
-          <li>Network line setup & validation</li>
-          <li>Technical documentation & training</li>
-        </ul>
+      <h2>🏢 Reconext · Junior Engineer</h2>
+      <p class="date-range">📅 2023 - 2026</p>
+      <ul>
+      <li>🔧 Resolved 400+ engineering issues across Cisco product families</li>
+      <li>⚙️ Designed and implemented NPI test automation framework for 8 product lines</li>
+      <li>🌐 Automated network line setup & validation, reducing configuration errors</li>
+      <li>📚 Created technical documentation and training materials for internal teams</li>
+      </ul>
       </div>
     </section>
 
     <!-- ===== Education Section ===== -->
     <section id="education" class="grid">
       <div class="card">
-        <h2>Education</h2>
-        <p><strong>BSc Computer Engineering</strong><br>Bahçeşehir University (2018–2023)</p>
-        <p>Graduation thesis: 3D Material Printer with STL → GCode parser</p>
+      <h2>🎓 Education</h2>
+      <p><strong>💻 BSc Computer Engineering</strong><br>🏫 Bahçeşehir University (2018–2023)</p>
+      <p>🎯 Graduation thesis: 3D Material Printer with STL → GCode parser</p>
       </div>
     </section>
 

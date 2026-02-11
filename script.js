@@ -47,9 +47,9 @@ const closeBtn = document.querySelector('.close');
 const skillImages = {
   "Python": "Files/python.png",
   "Test Automation": "Files/automation.png",
-  "Machine Learning": "",
-  "C#": "",
-  "Azure": "",
+  "Machine Learning": "Files/ml.png",
+  "C#": "Files/csharp.png",
+  "Azure": "Files/azure.png",
   "Linux": "Files/linux.png",
   "Networking": "Files/networking.png"
 };
@@ -57,9 +57,11 @@ const skillImages = {
 document.querySelectorAll('.pill').forEach(pill => {
   pill.addEventListener('click', () => {
     const skill = pill.textContent;
-    modal.style.display = "block";
-    modalImg.src = skillImages[skill];
-    captionText.textContent = skill;
+    if (skillImages[skill]) {
+      modal.style.display = "block";
+      modalImg.src = skillImages[skill];
+      captionText.textContent = skill;
+    }
   });
 });
 
@@ -72,4 +74,36 @@ modal.onclick = function(e) {
     modal.style.display = "none";
   }
 }
+
+// Project Details Toggle
+document.querySelectorAll('.project-link').forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    
+    // Only handle details toggle if data-project attribute exists
+    const projectId = link.getAttribute('data-project');
+    if (projectId) {
+      const detailsElement = document.getElementById(projectId + '-details');
+      
+      if (detailsElement) {
+        detailsElement.classList.toggle('hidden');
+        
+        // Close other open details
+        document.querySelectorAll('.project-details:not(.hidden)').forEach(details => {
+          if (details.id !== projectId + '-details') {
+            details.classList.add('hidden');
+          }
+        });
+      }
+    }
+  });
+});
+
+// Close details button
+document.querySelectorAll('.close-details').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    btn.closest('.project-details').classList.add('hidden');
+  });
+});
 
