@@ -7,17 +7,26 @@ const observer = new IntersectionObserver(entries => {
 cards.forEach(card => observer.observe(card));
 
 const tooltip = document.getElementById('tooltip');
+
 document.querySelectorAll('.pill').forEach(pill => {
   pill.addEventListener('mousemove', e => {
     tooltip.textContent = pill.dataset.tip;
-    tooltip.style.left = e.pageX + 15 + 'px';
-    tooltip.style.top = e.pageY + 15 + 'px';
+
+    // Position next to cursor with small offset
+    const offsetX = 15;
+    const offsetY = 15;
+
+    tooltip.style.left = (e.pageX + offsetX) + 'px';
+    tooltip.style.top = (e.pageY + offsetY) + 'px';
     tooltip.style.opacity = 1;
   });
-  pill.addEventListener('mouseleave', () => tooltip.style.opacity = 0);
+
+  pill.addEventListener('mouseleave', () => {
+    tooltip.style.opacity = 0;
+  });
 });
 
-const text = 'Yusuf Kazım Işık';
+const text = 'Yusuf Kazim ISIK';
 const typingEl = document.getElementById('typing');
 let index = 0;
 function type() {
@@ -29,3 +38,38 @@ function type() {
   }
 }
 type();
+
+const modal = document.getElementById('skillModal');
+const modalImg = document.getElementById('modalImg');
+const captionText = document.getElementById('caption');
+const closeBtn = document.querySelector('.close');
+
+const skillImages = {
+  "Python": "Files/python.png",
+  "Test Automation": "Files/automation.png",
+  "Machine Learning": "",
+  "C#": "",
+  "Azure": "",
+  "Linux": "Files/linux.png",
+  "Networking": "Files/networking.png"
+};
+
+document.querySelectorAll('.pill').forEach(pill => {
+  pill.addEventListener('click', () => {
+    const skill = pill.textContent;
+    modal.style.display = "block";
+    modalImg.src = skillImages[skill];
+    captionText.textContent = skill;
+  });
+});
+
+closeBtn.onclick = function() {
+  modal.style.display = "none";
+}
+
+modal.onclick = function(e) {
+  if (e.target === modal) {
+    modal.style.display = "none";
+  }
+}
+
