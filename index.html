@@ -14,6 +14,7 @@
 </head>
 
 <body>
+  <canvas id="background-canvas"></canvas>
 
   <!-- ===== Navigation ===== -->
   <nav>
@@ -25,16 +26,24 @@
 
   <div class="container">
 
-    <!-- ===== Header ===== -->
-    <header>
-      <h1 id="typing"></h1>
-      <p class="tagline">💻 Computer Engineer · Automation, Networking & Test Engineering</p>
-      <p>📍 Zoetermeer · <a href="mailto:yusufk.isik@gmail.com">yusufk.isik@gmail.com</a></p>
-      <div class="social-links">
-        <a href="https://github.com/YusufKISIK/" target="_blank" title="GitHub">🐙 GitHub</a>
-        <a href="https://www.linkedin.com/in/yusuf-isik/" target="_blank" title="LinkedIn">💼 LinkedIn</a>
+    <!-- ===== Header / Hero Section ===== -->
+    <header class="hero">
+      <div class="hero-content">
+        <div class="hero-images">
+          <img src="Files/legoMe.png" alt="LEGO Me" class="hero-img lego-avatar">
+          <img src="Files/concerts.png" alt="Concerts" class="hero-img music-avatar">
+        </div>
+        <div class="hero-text">
+          <h1 id="typing"></h1>
+          <p class="tagline">💻 Computer Engineer · Automation, Networking & Test Engineering</p>
+          <p class="intro-subtext">📍 Zoetermeer · <a href="mailto:yusufk.isik@gmail.com">yusufk.isik@gmail.com</a></p>
+          <div class="social-links">
+            <a href="https://github.com/YusufKISIK/" target="_blank" title="GitHub">🐙 GitHub</a>
+            <a href="https://www.linkedin.com/in/yusuf-isik/" target="_blank" title="LinkedIn">💼 LinkedIn</a>
+          </div>
+          <a href="Files/YusufKazimIsik_Cv.pdf" target="_blank" class="cv-btn">📥 Open CV</a>
+        </div>
       </div>
-      <a href="Files/YusufKazimIsik_Cv.pdf" target="_blank" class="cv-btn">📥 Open CV</a>
     </header>
 
     <!-- ===== About Section ===== -->
@@ -85,20 +94,28 @@
     <section id="tech-visuals">
       <h2 style="text-align: center; margin-bottom: 2rem; color: var(--accent2);">Technological Stack</h2>
       <div class="visual-grid">
-        <div class="visual-card">
+        <div class="visual-card"
+          data-desc="Attending Cisco Live 2025 was a milestone in my engineering path. It provided deep insights into AI-driven networking, the latest automation frameworks, and hands-on experience with cutting-edge Cisco hardware."
+          data-works="Network Automation Workshops, Innovation Labs">
           <img src="Files/python.png" alt="Python">
           <p>Cisco Live 2025</p>
         </div>
-        <div class="visual-card">
+        <div class="visual-card"
+          data-desc="Specializing in the automation of device configurations. I build tools that streamline complex setup processes for high-scale network infrastructure, ensuring accuracy and efficiency in every deployment."
+          data-works="Automated Provisioning, Topology Validation">
           <img src="Files/networking.png" alt="Networking">
           <p>Network Config</p>
         </div>
-        <div class="visual-card">
+        <div class="visual-card"
+          data-desc="Beyond pure engineering, I apply my technical skills to creative sound design. This involves using digital signal processing (DSP) and synthesis to create immersive audio experiences."
+          data-works="DSP Scripts, Digital Audio Workstations">
           <img src="Files/Sound.png" alt="Sound">
           <p>Sound Design</p>
         </div>
-        <div class="visual-card">
-          <img src="Files/linux.png" alt="Linux">
+        <div class="visual-card"
+          data-desc="A productive workspace is about more than just a powerful machine. It's about a lives that you share your environment with."
+          data-works="Cat Environment">
+          <img src="Files/cat.png" alt="Cat">
           <p>Healthy Working Environment</p>
         </div>
       </div>

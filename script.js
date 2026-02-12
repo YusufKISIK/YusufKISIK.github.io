@@ -88,7 +88,7 @@ if (sidebar && overlay) {
       sidebarImg.style.display = 'none';
     }
 
-    sidebarDesc.innerHTML = description || `Detailed information about ${title} will be available here.`;
+    sidebarDesc.innerHTML = description || "";
 
     // Handle Works
     if (works && sidebarWorks && sidebarWorksContainer) {
@@ -126,8 +126,8 @@ if (sidebar && overlay) {
       const title = this.querySelector('p').textContent;
       const img = this.querySelector('img').src;
       const desc = this.getAttribute('data-desc');
-      // Visual cards don't have separate 'works' data yet, passing null
-      openSidebar(title, img, desc, null);
+      const works = this.getAttribute('data-works');
+      openSidebar(title, img, desc, works);
     });
   });
 
@@ -227,5 +227,164 @@ document.querySelectorAll('.close-details').forEach(btn => {
 /* Disabled in multi-page mode or simplified */
 // window.addEventListener('scroll', () => { ... });
 
-console.log('🌧️ Portfolio loaded successfully!');
+console.log('🎮 Nerdy Portfolio ready!');
+
+// ===== LEGO MUSIC NOTE ANIMATION =====
+const canvas = document.getElementById('background-canvas');
+if (canvas) {
+  const ctx = canvas.getContext('2d');
+  let notes = [];
+  const noteColors = ['#ffae00', '#d12229', '#0085ca', '#c9d1d9']; // LEGO Yellow, Red, Blue, White-ish
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+
+  window.addEventListener('resize', resizeCanvas);
+  resizeCanvas();
+
+  class LegoNote {
+    constructor() {
+      this.reset();
+    }
+
+    reset() {
+      this.x = Math.random() * canvas.width;
+      this.y = canvas.height + 100;
+      this.size = 15 + Math.random() * 20;
+      this.speed = 0.5 + Math.random() * 1.5;
+      this.color = noteColors[Math.floor(Math.random() * noteColors.length)];
+      this.opacity = 0.2 + Math.random() * 0.4;
+      this.rotation = Math.random() * Math.PI * 2;
+      this.rotationSpeed = (Math.random() - 0.5) * 0.02;
+      this.type = Math.floor(Math.random() * 2); // 0: Single note, 1: Double note
+    }
+
+    draw() {
+      ctx.save();
+      ctx.translate(this.x, this.y);
+      ctx.rotate(this.rotation);
+      ctx.globalAlpha = this.opacity;
+      ctx.fillStyle = this.color;
+
+      // Draw "LEGO Brick" style music note
+      // Main Body (Rectangles instead of circles to feel LEGO-like)
+      if (this.type === 0) {
+        // Single Note
+        ctx.fillRect(-this.size / 2, -this.size / 2, this.size, this.size * 0.7); // Note head
+        ctx.fillRect(this.size / 2 - 4, -this.size * 2, 4, this.size * 2); // Stem
+        ctx.fillRect(this.size / 2 - 4, -this.size * 2, this.size * 0.8, 4); // flag
+      } else {
+        // Double Note
+        ctx.fillRect(-this.size, 0, this.size * 0.7, this.size * 0.5); // Left head
+        ctx.fillRect(this.size * 0.3, 0, this.size * 0.7, this.size * 0.5); // Right head
+        ctx.fillRect(this.size * -0.3, -this.size * 1.5, 4, this.size * 1.5); // Left stem
+        ctx.fillRect(this.size, -this.size * 1.5, 4, this.size * 1.5); // Right stem
+        ctx.fillRect(this.size * -0.3, -this.size * 1.5, this.size * 1.3, 5); // Connect beam
+      }
+
+      // Add "Studs" to make it feel like LEGO
+      ctx.fillStyle = 'rgba(0,0,0,0.2)';
+      if (this.type === 0) {
+        ctx.beginPath();
+        ctx.arc(0, -this.size / 4, this.size / 4, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      ctx.restore();
+    }
+
+    update() {
+      this.y -= this.speed;
+      this.rotation += this.rotationSpeed;
+      if (this.y < -100) {
+        this.reset();
+      }
+    }
+  }
+
+  class LegoCat {
+    constructor() {
+      this.reset();
+      this.x = Math.random() * canvas.width; // Initial random position
+    }
+
+    reset() {
+      this.direction = Math.random() > 0.5 ? 1 : -1;
+      this.x = this.direction === 1 ? -100 : canvas.width + 100;
+      this.y = canvas.height - 30 - Math.random() * 20;
+      this.speed = 0.8 + Math.random() * 1.2;
+      this.size = 12;
+      this.walkCycle = 0;
+      const colors = ['#ff9800', '#ffffff', '#757575', '#333333']; // Orange, White, Grey, Dark Grey
+      this.color = colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    draw() {
+      ctx.save();
+      ctx.translate(this.x, this.y);
+      if (this.direction === -1) ctx.scale(-1, 1);
+
+      ctx.fillStyle = this.color;
+      ctx.globalAlpha = 0.4;
+
+      // Body (Rectangle)
+      ctx.fillRect(-this.size, -this.size / 2, this.size * 2, this.size);
+
+      // Head (Square)
+      ctx.fillRect(this.size, -this.size, this.size * 0.8, this.size * 0.8);
+
+      // Ears (Triangles/Small squares)
+      ctx.fillRect(this.size, -this.size - 4, 4, 4);
+      ctx.fillRect(this.size + 8, -this.size - 4, 4, 4);
+
+      // Tail (Lego segments)
+      ctx.fillRect(-this.size - 4, -this.size / 2, 4, 4);
+      ctx.fillRect(-this.size - 8, -this.size / 2 - 4, 4, 4);
+
+      // Legs with animation
+      const legOffset = Math.sin(this.walkCycle) * 4;
+      ctx.fillRect(-this.size + 2, this.size / 2, 4, 6 + legOffset);
+      ctx.fillRect(this.size - 4, this.size / 2, 4, 6 - legOffset);
+
+      ctx.restore();
+    }
+
+    update() {
+      this.x += this.speed * this.direction;
+      this.walkCycle += 0.15;
+      if ((this.direction === 1 && this.x > canvas.width + 100) ||
+        (this.direction === -1 && this.x < -100)) {
+        this.reset();
+      }
+    }
+  }
+
+  for (let i = 0; i < 25; i++) {
+    notes.push(new LegoNote());
+  }
+
+  let cats = [];
+  for (let i = 0; i < 3; i++) {
+    cats.push(new LegoCat());
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    notes.forEach(note => {
+      note.update();
+      note.draw();
+    });
+    cats.forEach(cat => {
+      cat.update();
+      cat.draw();
+    });
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+}
+
+console.log('🧱 LEGO Music & Cats Background initialized!');
 
