@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yusuf Kazim ISIK | Projects</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- ===== Navigation ===== -->
+    <nav>
+        <ul>
+            <li><a href="index.html">About & CV</a></li>
+            <li><a href="projects.html" class="active">Projects</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+
+        <!-- ===== Header ===== -->
+        <header>
+            <h1>My Projects</h1>
+            <p class="tagline">Exploring Code, Automation & Innovation</p>
+            <div style="margin-top: 2rem;">
+                <a href="https://github.com/YusufKISIK/" target="_blank" class="cv-btn">🐙 View GitHub Profile</a>
+            </div>
+        </header>
+
+        <!-- ===== Projects Section ===== -->
+        <section id="projects" class="grid">
+            <div class="card project-card" data-project="printer">
+                <h3>🖨️ 3D Material Printer</h3>
+                <p class="tech-stack">🐍 Python · 📄 STL Parser · ⚙️ GCode Generation</p>
+                <p>Graduation thesis project: Built a complete 3D printer pipeline from STL file parsing to GCode
+                    generation for
+                    automated material deposition.</p>
+                <a href="https://github.com/YusufKISIK/CapstoneProject" class="project-link">View Project →</a>
+            </div>
+            <div class="card project-card" data-project="npi">
+                <h3>🧪 NPI Test Automation</h3>
+                <p class="tech-stack">🐍 Python · 🔷 Cisco · 🌐 Network Testing</p>
+                <p>Automated test framework for 8 Cisco product families, significantly reducing manual testing time and
+                    improving regression coverage.</p>
+                <a href="https://www.reconext.com/reconext-wins-cisco-2024-excellence-in-logistics-award/"
+                    class="project-link">Learn More →</a>
+            </div>
+            <div class="card project-card" data-project="network-config">
+                <h3>🌐 Network Config</h3>
+                <p class="tech-stack">🐍 Python · 🐧 Linux · 📡 IPv4/IPv6</p>
+                <p>Developed automation tools for network line setup and validation, reducing configuration errors and
+                    deployment time.</p>
+            </div>
+        </section>
+
+        <!-- Project Details Container -->
+        <div id="project-details-container">
+
+            <!-- Network Config Details -->
+            <div id="network-config-details" class="project-details hidden">
+                <div class="details-card">
+                    <button class="close-details">&times;</button>
+                    <h3>🌐 Network Config Details</h3>
+                    <div class="details-content">
+                        <div class="details-image">
+                            <img src="Files/networking.png" alt="Networking Diagram">
+                        </div>
+                        <div class="details-text">
+                            <p>This project involved creating a robust automation suite for configuring network devices
+                                on the production line. By moving fro manual CLI commands to Python scripts using
+                                Netmiko and Paramiko, we achieved:</p>
+                            <ul>
+                                <li><strong>95% Reduction</strong> in configuration errors.</li>
+                                <li><strong>40% Faster</strong> deployment times for new lines.</li>
+                                <li>Support for both IPv4 and IPv6 stacks.</li>
+                            </ul>
+                            <h4>Key Technologies:</h4>
+                            <p>Python 3.9+, Linux (CentOS/Debian), SSH Automation, RegExp parsing.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3D Printer Details -->
+            <div id="printer-details" class="project-details hidden">
+                <div class="details-card">
+                    <button class="close-details">&times;</button>
+                    <h3>🖨️ 3D Material Printer Details</h3>
+                    <div class="details-content">
+                        <!-- Placeholder since we don't have a specific image for this one, reusing python or keeping empty -->
+                        <div class="details-image">
+                            <img src="Files/python.png" alt="Python Scripting">
+                        </div>
+                        <div class="details-text">
+                            <p>A comprehensive graduation project that bridged the gap between digital models and
+                                physical manufacturing. The system parses standard STL files, slices them into layers,
+                                and generates GCode instructions for a custom-built 3-axis printer.</p>
+                            <ul>
+                                <li>Custom <strong>Slicing Algorithm</strong> implemented in Python.</li>
+                                <li>Real-time visualization of the print path.</li>
+                                <li>Direct serial communication with Arduino-based motion controllers.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NPI Test Details -->
+            <div id="npi-details" class="project-details hidden">
+                <div class="details-card">
+                    <button class="close-details">&times;</button>
+                    <h3>🧪 NPI Test Automation Details</h3>
+                    <div class="details-content">
+                        <div class="details-image">
+                            <img src="Files/automation.png" alt="Test Automation">
+                        </div>
+                        <div class="details-text">
+                            <p>Designed for high-scale manufacturing environments, this framework automates the New
+                                Product Introduction (NPI) testing phase for Cisco networking hardware.</p>
+                            <ul>
+                                <li>Modular architecture allowing easy addition of new product families.</li>
+                                <li>Integration with SQL databases for result logging and yield analysis.</li>
+                                <li>Parallel execution capabilities to test multiple units simultaneously.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ===== Footer ===== -->
+        <footer>
+            © 2026 Yusuf Kazim ISIK
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
