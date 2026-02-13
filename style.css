@@ -6,11 +6,8 @@
   --text: #c9d1d9;
   --muted: #8b949e;
   --accent: #ffae00;
-  /* LEGO Yellow */
   --accent2: #d12229;
-  /* LEGO Red */
   --accent3: #0085ca;
-  /* LEGO Blue */
   --mono: 'Fira Code', monospace;
 }
 
@@ -31,7 +28,6 @@ body {
   position: relative;
 }
 
-/* Background Animation Placeholder */
 #background-canvas {
   position: fixed;
   top: 0;
@@ -55,7 +51,6 @@ body {
   margin-bottom: 4rem;
 }
 
-/* Hero Section Styles */
 .hero {
   padding: 4rem 0;
   text-align: center;
@@ -111,8 +106,10 @@ body {
 .tagline {
   font-family: var(--mono);
   font-size: 1.1rem;
+  font-weight: 500;
   color: var(--accent);
-  margin: 0.5rem 0;
+  margin: 0.5rem 0 1rem 0;
+  text-shadow: 0 0 10px rgba(0, 217, 255, 0.4);
 }
 
 .intro-subtext {
@@ -172,7 +169,6 @@ nav a:hover {
   transition: .3s ease;
 }
 
-/* LEGO Stud effect on cards */
 .card::before {
   content: '';
   position: absolute;
@@ -268,7 +264,6 @@ h2 {
   transform: translateX(4px);
 }
 
-/* Project Details */
 .project-details {
   margin-top: -1.5rem;
   margin-bottom: 2.5rem;
@@ -382,21 +377,13 @@ footer {
   color: var(--muted);
 }
 
-.tagline {
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: var(--accent2);
-  text-shadow: 0 0 10px rgba(0, 217, 255, 0.4);
-  margin: 0.5rem 0 1rem 0;
-}
-
 .cv-btn {
   display: inline-block;
   margin-top: 1.2rem;
   margin-bottom: 1.5rem;
   padding: .6rem 1.4rem;
   border-radius: .8rem;
-  background: linear-gradient(135deg, #ff7f50, #ff6b35);
+  background: linear-gradient(135deg, var(--accent2), var(--accent));
   color: #fff;
   font-weight: 600;
   transition: transform .3s ease, box-shadow .3s ease;
@@ -412,7 +399,7 @@ footer {
 
 .tooltip {
   position: absolute;
-  background: #0a0e15;
+  background: var(--bg);
   padding: 0.5rem 0.8rem;
   border-radius: 0.5rem;
   font-size: 0.8rem;
@@ -426,7 +413,6 @@ footer {
   box-shadow: 0 0 10px rgba(255, 127, 80, 0.2), inset 0 0 8px rgba(0, 217, 255, 0.1);
 }
 
-/* ===== Sidebar Styles ===== */
 #sidebar-overlay {
   position: fixed;
   top: 0;
@@ -514,15 +500,11 @@ footer {
   font-size: 1.1rem;
 }
 
-/* ===== Interactivity Enhancements ===== */
-
-/* 3D Tilt container style */
 .tilt-card {
   transform-style: preserve-3d;
   transform: perspective(1000px);
 }
 
-/* Enhanced Glow on Hover */
 .card:hover,
 .visual-card:hover {
   box-shadow:
@@ -532,7 +514,6 @@ footer {
   border-color: rgba(0, 217, 255, 0.5);
 }
 
-/* Visual Grid Adjustments */
 .visual-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -559,7 +540,6 @@ footer {
   border-color: var(--accent);
 }
 
-/* Shine effect */
 .visual-card::before {
   content: '';
   position: absolute;
@@ -591,7 +571,6 @@ footer {
 
 .visual-card:hover img {
   transform: scale(1.05) translateZ(20px);
-  /* Pop out effect */
 }
 
 .visual-card p {
@@ -607,11 +586,35 @@ footer {
   text-shadow: 0 0 10px var(--accent2);
 }
 
-/* Nav Active State (Explicit) */
 nav a.active {
   color: var(--accent2);
 }
 
 nav a.active::after {
   width: 100%;
+}
+
+.music-card {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.soundcloud-container {
+  border: 4px solid #30363d;
+  box-shadow: 6px 6px 0 var(--accent);
+  background: var(--bg);
+  min-height: 450px;
+  display: flex;
+}
+
+.soundcloud-container iframe {
+  border: none;
+}
+
+@media (max-width: 900px) {
+  .music-card {
+    grid-template-columns: 1fr;
+  }
 }

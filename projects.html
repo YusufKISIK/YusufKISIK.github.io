@@ -6,16 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Yusuf Kazim ISIK | Projects</title>
 
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-    <!-- ===== Navigation ===== -->
     <nav>
         <ul>
             <li><a href="index.html">About & CV</a></li>
@@ -25,7 +22,6 @@
 
     <div class="container">
 
-        <!-- ===== Header ===== -->
         <header>
             <h1>My Projects</h1>
             <p class="tagline">Exploring Code, Automation & Innovation</p>
@@ -34,7 +30,6 @@
             </div>
         </header>
 
-        <!-- ===== Projects Section ===== -->
         <section id="projects" class="grid">
             <div class="card project-card" data-project="printer">
                 <h3>🖨️ 3D Material Printer</h3>
@@ -60,10 +55,7 @@
             </div>
         </section>
 
-        <!-- Project Details Container -->
         <div id="project-details-container">
-
-            <!-- Network Config Details -->
             <div id="network-config-details" class="project-details hidden">
                 <div class="details-card">
                     <button class="close-details">&times;</button>
@@ -77,26 +69,24 @@
                                 on the production line. By moving fro manual CLI commands to Python scripts using
                                 Netmiko and Paramiko, we achieved:</p>
                             <ul>
-                                <li><strong>95% Reduction</strong> in configuration errors.</li>
+                                <li><strong>30+ New Lines</strong> added.</li>
                                 <li><strong>40% Faster</strong> deployment times for new lines.</li>
                                 <li>Support for both IPv4 and IPv6 stacks.</li>
                             </ul>
                             <h4>Key Technologies:</h4>
-                            <p>Python 3.9+, Linux (CentOS/Debian), SSH Automation, RegExp parsing.</p>
+                            <p>Python, Linux (Debian), SSH Automation, RegExp parsing with Python.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- 3D Printer Details -->
             <div id="printer-details" class="project-details hidden">
                 <div class="details-card">
                     <button class="close-details">&times;</button>
                     <h3>🖨️ 3D Material Printer Details</h3>
                     <div class="details-content">
-                        <!-- Placeholder since we don't have a specific image for this one, reusing python or keeping empty -->
                         <div class="details-image">
-                            <img src="Files/python.png" alt="Python Scripting">
+                            <img src="Files/slicer.png" alt="Python Scripting">
                         </div>
                         <div class="details-text">
                             <p>Comprehensive graduation project that bridged the gap between digital models and
@@ -112,7 +102,6 @@
                 </div>
             </div>
 
-            <!-- NPI Test Details -->
             <div id="npi-details" class="project-details hidden">
                 <div class="details-card">
                     <button class="close-details">&times;</button>
@@ -133,16 +122,29 @@
                     </div>
                 </div>
             </div>
-
         </div>
 
-        <!-- ===== Footer ===== -->
+        <section id="music-projects" style="margin-top: 5rem;">
+            <h2 style="text-align: center; margin-bottom: 2rem;">🎵 Music & Sound Design</h2>
+            <div class="card music-card">
+                <div class="music-info">
+                    <h3>Uzay Işık</h3>
+                    <p class="tech-stack">Electronic · Sound Design · Ambient</p>
+                    <p>My musical project where I explore digital textures, synthesis, and atmospheric soundscapes.
+                        Listen to my latest tracks below.</p>
+                </div>
+                <div class="soundcloud-container">
+                    <iframe width="100%" height="450" scrolling="no" frameborder="no" allow="autoplay"
+                        src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/uzay-i-ik&color=%23ffae00&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+                </div>
+            </div>
+        </section>
+
         <footer>
             © 2026 Yusuf Kazim ISIK
         </footer>
     </div>
 
-    <!-- Scripts -->
     <script src="script.js"></script>
 
 </body>

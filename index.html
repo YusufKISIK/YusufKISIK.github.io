@@ -6,17 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Yusuf Kazim ISIK | Computer Engineer</title>
 
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <!-- Stylesheet -->
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
   <canvas id="background-canvas"></canvas>
 
-  <!-- ===== Navigation ===== -->
   <nav>
     <ul>
       <li><a href="index.html" class="active">About & CV</a></li>
@@ -26,7 +23,6 @@
 
   <div class="container">
 
-    <!-- ===== Header / Hero Section ===== -->
     <header class="hero">
       <div class="hero-content">
         <div class="hero-images">
@@ -46,7 +42,6 @@
       </div>
     </header>
 
-    <!-- ===== About Section ===== -->
     <section id="about" class="grid">
       <div class="card">
         <h2>About Me</h2>
@@ -55,11 +50,9 @@
       </div>
     </section>
 
-    <!-- ===== Skills Section ===== -->
     <section id="skills" class="grid">
       <div class="card">
         <h2>🛠️ Technical Skills</h2>
-        <!-- Each "pill" has a tooltip describing the skill -->
         <span class="pill"
           data-desc="Python is my primary language for automation, scripting, and backend development. I use it extensively for network automation (Cisco Autotest & Apollo) and data processing."
           data-works="<div style='display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.5rem;'><a href='https://github.com/YusufKISIK/CapstoneProject' target='_blank' class='project-link'>3D Material Printer</a> <a href='https://github.com/YusufKISIK/PythonChatGPTApiProject' target='_blank' class='project-link'>ChatGPT API Project</a></div><p>Also used in: NPI Test Automation</p>"
@@ -90,7 +83,6 @@
       </div>
     </section>
 
-    <!-- ===== Visual Skills Grid ===== -->
     <section id="tech-visuals">
       <h2 style="text-align: center; margin-bottom: 2rem; color: var(--accent2);">Technological Stack</h2>
       <div class="visual-grid">
@@ -116,12 +108,11 @@
           data-desc="A productive workspace is about more than just a powerful machine. It's about a lives that you share your environment with."
           data-works="Cat Environment">
           <img src="Files/cat.png" alt="Cat">
-          <p>Healthy Working Environment</p>
+          <p>Private Psychological Help 🐈</p>
         </div>
       </div>
     </section>
 
-    <!-- ===== Experience Section ===== -->
     <section id="experience" class="grid">
       <div class="card">
         <h2>🏢 Reconext · Junior Engineer</h2>
@@ -135,7 +126,6 @@
       </div>
     </section>
 
-    <!-- ===== Education Section ===== -->
     <section id="education" class="grid">
       <div class="card">
         <h2>🎓 Education</h2>
@@ -144,7 +134,6 @@
       </div>
     </section>
 
-    <!-- ===== Certifications Section ===== -->
     <section id="certifications" class="grid">
       <div class="card">
         <h2>📜 Certifications</h2>
@@ -164,20 +153,15 @@
       </div>
     </section>
 
-    <!-- ===== Footer ===== -->
     <footer>
       © 2026 Yusuf Kazim ISIK
     </footer>
   </div>
 
-  <!-- Tooltip -->
   <div class="tooltip" id="tooltip"></div>
 
-
-  <!-- Sidebar Overlay -->
   <div id="sidebar-overlay"></div>
 
-  <!-- Skill Sidebar -->
   <div id="skill-sidebar">
     <button class="close-sidebar">&times;</button>
     <div class="sidebar-content">
@@ -195,7 +179,6 @@
     </div>
   </div>
 
-  <!-- Scripts -->
   <script src="script.js"></script>
 
 </body>

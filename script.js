@@ -1,4 +1,3 @@
-// ===== TYPING ANIMATION =====
 function typeWriter(element, text, speed = 100) {
   let index = 0;
   element.innerHTML = '';
@@ -13,7 +12,6 @@ function typeWriter(element, text, speed = 100) {
   type();
 }
 
-// Start typing animation on page load (only on Home)
 window.addEventListener('load', () => {
   const typingElement = document.getElementById('typing');
   if (typingElement) {
@@ -21,7 +19,6 @@ window.addEventListener('load', () => {
   }
 });
 
-// ===== INTERSECTION OBSERVER FOR CARD ANIMATIONS =====
 const observerOptions = {
   threshold: 0.1,
   rootMargin: '0px 0px -50px 0px'
@@ -36,12 +33,9 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, observerOptions);
 
-// Observe all cards
 document.querySelectorAll('.card, .visual-card').forEach(card => {
   observer.observe(card);
 });
-
-// ===== TOOLTIP FUNCTIONALITY =====
 const tooltip = document.getElementById('tooltip');
 
 if (tooltip) {
@@ -64,7 +58,6 @@ if (tooltip) {
   });
 }
 
-// ===== SIDEBAR FUNCTIONALITY =====
 const sidebar = document.getElementById('skill-sidebar');
 const overlay = document.getElementById('sidebar-overlay');
 
@@ -80,7 +73,6 @@ if (sidebar && overlay) {
   function openSidebar(title, imageSrc, description, works) {
     sidebarTitle.textContent = title;
 
-    // Handle Image
     if (imageSrc) {
       sidebarImg.src = imageSrc;
       sidebarImg.style.display = 'block';
@@ -90,7 +82,6 @@ if (sidebar && overlay) {
 
     sidebarDesc.innerHTML = description || "";
 
-    // Handle Works
     if (works && sidebarWorks && sidebarWorksContainer) {
       sidebarWorks.innerHTML = works;
       sidebarWorksContainer.style.display = 'block';
@@ -109,7 +100,6 @@ if (sidebar && overlay) {
     document.body.style.overflow = ''; // Restore scrolling
   }
 
-  // Open sidebar when clicking on a skill pill
   document.querySelectorAll('.pill').forEach(pill => {
     pill.addEventListener('click', function () {
       const title = this.textContent.trim();
@@ -120,7 +110,6 @@ if (sidebar && overlay) {
     });
   });
 
-  // Open sidebar when clicking on a visual card
   document.querySelectorAll('.visual-card').forEach(card => {
     card.addEventListener('click', function () {
       const title = this.querySelector('p').textContent;
@@ -134,14 +123,11 @@ if (sidebar && overlay) {
   closeSidebarBtn.addEventListener('click', closeSidebar);
   overlay.addEventListener('click', closeSidebar);
 
-  // Close on Escape key
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeSidebar();
   });
 }
 
-// ===== 3D TILT EFFECT (TARGETED) =====
-// Only apply to project cards and visual cards, NOT the technical skills card
 document.querySelectorAll('.project-card, .visual-card').forEach(card => {
   card.addEventListener('mousemove', (e) => {
     const rect = card.getBoundingClientRect();
@@ -163,7 +149,6 @@ document.querySelectorAll('.project-card, .visual-card').forEach(card => {
   });
 });
 
-// ===== SMOOTH SCROLL ENHANCEMENT =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     const href = this.getAttribute('href');
@@ -176,7 +161,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// ===== PROJECT DETAILS EXPANSION =====
 document.querySelectorAll('[data-project]').forEach(card => {
   card.addEventListener('click', function (e) {
     if (e.target.classList.contains('project-link') || e.target.tagName === 'A') {
@@ -190,20 +174,24 @@ document.querySelectorAll('[data-project]').forEach(card => {
 
     const isHidden = detailsElement.classList.contains('hidden');
 
-    // Hide all other details
     document.querySelectorAll('[id$="-details"]').forEach(detail => {
       if (detail !== detailsElement) {
         detail.classList.add('hidden');
       }
     });
 
-    // Toggle current details
     if (isHidden) {
       detailsElement.classList.remove('hidden');
 
-      // Scroll to details
       setTimeout(() => {
-        detailsElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        const offset = 100; // Account for sticky navbar
+        const elementPosition = detailsElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
       }, 100);
 
     } else {
@@ -212,7 +200,6 @@ document.querySelectorAll('[data-project]').forEach(card => {
   });
 });
 
-// Close details button
 document.querySelectorAll('.close-details').forEach(btn => {
   btn.addEventListener('click', (e) => {
     e.preventDefault();
@@ -223,18 +210,11 @@ document.querySelectorAll('.close-details').forEach(btn => {
   });
 });
 
-// ===== ACTIVE NAVIGATION INDICATOR (Only for anchors on same page) =====
-/* Disabled in multi-page mode or simplified */
-// window.addEventListener('scroll', () => { ... });
-
-console.log('🎮 Nerdy Portfolio ready!');
-
-// ===== LEGO MUSIC NOTE ANIMATION =====
 const canvas = document.getElementById('background-canvas');
 if (canvas) {
   const ctx = canvas.getContext('2d');
   let notes = [];
-  const noteColors = ['#ffae00', '#d12229', '#0085ca', '#c9d1d9']; // LEGO Yellow, Red, Blue, White-ish
+  const noteColors = ['#ffae00', '#d12229', '#0085ca', '#c9d1d9'];
 
   function resizeCanvas() {
     canvas.width = window.innerWidth;
@@ -268,23 +248,18 @@ if (canvas) {
       ctx.globalAlpha = this.opacity;
       ctx.fillStyle = this.color;
 
-      // Draw "LEGO Brick" style music note
-      // Main Body (Rectangles instead of circles to feel LEGO-like)
       if (this.type === 0) {
-        // Single Note
-        ctx.fillRect(-this.size / 2, -this.size / 2, this.size, this.size * 0.7); // Note head
-        ctx.fillRect(this.size / 2 - 4, -this.size * 2, 4, this.size * 2); // Stem
-        ctx.fillRect(this.size / 2 - 4, -this.size * 2, this.size * 0.8, 4); // flag
+        ctx.fillRect(-this.size / 2, -this.size / 2, this.size, this.size * 0.7);
+        ctx.fillRect(this.size / 2 - 4, -this.size * 2, 4, this.size * 2);
+        ctx.fillRect(this.size / 2 - 4, -this.size * 2, this.size * 0.8, 4);
       } else {
-        // Double Note
-        ctx.fillRect(-this.size, 0, this.size * 0.7, this.size * 0.5); // Left head
-        ctx.fillRect(this.size * 0.3, 0, this.size * 0.7, this.size * 0.5); // Right head
-        ctx.fillRect(this.size * -0.3, -this.size * 1.5, 4, this.size * 1.5); // Left stem
-        ctx.fillRect(this.size, -this.size * 1.5, 4, this.size * 1.5); // Right stem
-        ctx.fillRect(this.size * -0.3, -this.size * 1.5, this.size * 1.3, 5); // Connect beam
+        ctx.fillRect(-this.size, 0, this.size * 0.7, this.size * 0.5);
+        ctx.fillRect(this.size * 0.3, 0, this.size * 0.7, this.size * 0.5);
+        ctx.fillRect(this.size * -0.3, -this.size * 1.5, 4, this.size * 1.5);
+        ctx.fillRect(this.size, -this.size * 1.5, 4, this.size * 1.5);
+        ctx.fillRect(this.size * -0.3, -this.size * 1.5, this.size * 1.3, 5);
       }
 
-      // Add "Studs" to make it feel like LEGO
       ctx.fillStyle = 'rgba(0,0,0,0.2)';
       if (this.type === 0) {
         ctx.beginPath();
@@ -307,7 +282,7 @@ if (canvas) {
   class LegoCat {
     constructor() {
       this.reset();
-      this.x = Math.random() * canvas.width; // Initial random position
+      this.x = Math.random() * canvas.width;
     }
 
     reset() {
@@ -317,7 +292,7 @@ if (canvas) {
       this.speed = 0.8 + Math.random() * 1.2;
       this.size = 12;
       this.walkCycle = 0;
-      const colors = ['#ff9800', '#ffffff', '#757575', '#333333']; // Orange, White, Grey, Dark Grey
+      const colors = ['#ff9800', '#ffffff', '#757575', '#333333'];
       this.color = colors[Math.floor(Math.random() * colors.length)];
     }
 
@@ -329,21 +304,16 @@ if (canvas) {
       ctx.fillStyle = this.color;
       ctx.globalAlpha = 0.4;
 
-      // Body (Rectangle)
       ctx.fillRect(-this.size, -this.size / 2, this.size * 2, this.size);
 
-      // Head (Square)
       ctx.fillRect(this.size, -this.size, this.size * 0.8, this.size * 0.8);
 
-      // Ears (Triangles/Small squares)
       ctx.fillRect(this.size, -this.size - 4, 4, 4);
       ctx.fillRect(this.size + 8, -this.size - 4, 4, 4);
 
-      // Tail (Lego segments)
       ctx.fillRect(-this.size - 4, -this.size / 2, 4, 4);
       ctx.fillRect(-this.size - 8, -this.size / 2 - 4, 4, 4);
 
-      // Legs with animation
       const legOffset = Math.sin(this.walkCycle) * 4;
       ctx.fillRect(-this.size + 2, this.size / 2, 4, 6 + legOffset);
       ctx.fillRect(this.size - 4, this.size / 2, 4, 6 - legOffset);
@@ -385,6 +355,4 @@ if (canvas) {
 
   animate();
 }
-
-console.log('🧱 LEGO Music & Cats Background initialized!');
 
